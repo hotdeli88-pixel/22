@@ -1,5 +1,5 @@
 {
-  "name": "My Own Figure Generator",
-  "description": "An app that uses an uploaded photo and a text prompt to generate a photorealistic image of a commercial-style figurine based on the photo's characters, placed in a realistic setting using the Gemini 2.5 Flash Image model.",
+  "name": "나만의 피규어 생성기",
+  "description": "업로드된 사진과 텍스트 프롬프트를 사용하여 사진 속 캐릭터를 기반으로 한 상업용 피규어의 실사 이미지를 생성하는 앱입니다. Gemini 2.5 Flash Image 모델을 사용하여 사실적인 배경에 피규어를 배치합니다.",
   "requestFramePermissions": []
 }

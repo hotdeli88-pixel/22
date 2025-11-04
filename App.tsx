@@ -49,7 +49,7 @@ const App: React.FC = () => {
 
     const handleGenerate = useCallback(async () => {
         if (!sourceImage) {
-            setError("Please upload an image.");
+            setError("이미지를 업로드해주세요.");
             return;
         }
         setIsLoading(true);
@@ -59,7 +59,7 @@ const App: React.FC = () => {
             const result = await generateImage(sourceImage, initialPrompt);
             setGeneratedImage(result);
         } catch (err: any) {
-            setError(err.message || "An unexpected error occurred.");
+            setError(err.message || "알 수 없는 오류가 발생했습니다.");
         } finally {
             setIsLoading(false);
         }
@@ -70,7 +70,7 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto">
                 <header className="text-center mb-8">
                     <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">나만의 피규어 생성기</h1>
-                    <p className="text-slate-400 mt-2 text-lg">Create your own photorealistic figurine.</p>
+                    <p className="text-slate-400 mt-2 text-lg">실사 같은 나만의 피규어를 만들어보세요.</p>
                 </header>
                 
                 <main className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -78,7 +78,7 @@ const App: React.FC = () => {
                     <div className="flex flex-col gap-6">
                         {/* Image Upload */}
                         <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700 backdrop-blur-sm">
-                            <label className="block text-lg font-semibold mb-3 text-cyan-300">Upload Image</label>
+                            <label className="block text-lg font-semibold mb-3 text-cyan-300">이미지 업로드</label>
                             <div 
                                 className="relative border-2 border-dashed border-slate-600 rounded-lg p-6 text-center cursor-pointer hover:border-cyan-400 transition-colors"
                                 onClick={() => fileInputRef.current?.click()}
@@ -91,12 +91,12 @@ const App: React.FC = () => {
                                     accept="image/png, image/jpeg, image/webp"
                                 />
                                 {sourceImageUrl ? (
-                                    <img src={sourceImageUrl} alt="Uploaded preview" className="mx-auto max-h-80 rounded-md object-contain" />
+                                    <img src={sourceImageUrl} alt="업로드된 이미지 미리보기" className="mx-auto max-h-80 rounded-md object-contain" />
                                 ) : (
                                     <div className="flex flex-col items-center justify-center text-slate-400 h-80">
                                         <UploadIcon className="h-12 w-12 mb-2" />
-                                        <span className="font-semibold">Click to upload</span>
-                                        <span className="text-sm">PNG, JPG, or WEBP</span>
+                                        <span className="font-semibold">클릭해서 업로드</span>
+                                        <span className="text-sm">PNG, JPG, 또는 WEBP</span>
                                     </div>
                                 )}
                             </div>
@@ -105,27 +105,27 @@ const App: React.FC = () => {
 
                     {/* Output Column */}
                     <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700 flex flex-col backdrop-blur-sm">
-                        <h2 className="text-lg font-semibold mb-3 text-purple-300">Generated Result</h2>
+                        <h2 className="text-lg font-semibold mb-3 text-purple-300">생성된 결과</h2>
                         <div className="flex-grow bg-slate-900/70 rounded-lg flex items-center justify-center relative overflow-hidden aspect-square">
                             {isLoading && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/50 backdrop-blur-sm z-10">
                                     <Spinner />
-                                    <p className="mt-4 text-slate-300">Generating your figure...</p>
+                                    <p className="mt-4 text-slate-300">피규어를 생성하는 중...</p>
                                 </div>
                             )}
                             {error && (
                                 <div className="p-4 text-center text-red-400">
-                                    <p className="font-semibold">Generation Failed</p>
+                                    <p className="font-semibold">생성 실패</p>
                                     <p className="text-sm mt-1">{error}</p>
                                 </div>
                             )}
                             {!isLoading && !error && generatedImage && (
-                                <img src={generatedImage} alt="Generated figure" className="w-full h-full object-contain" />
+                                <img src={generatedImage} alt="생성된 피규어" className="w-full h-full object-contain" />
                             )}
                             {!isLoading && !error && !generatedImage && (
                                 <div className="text-center text-slate-500 p-4">
                                     <ImageIcon className="h-16 w-16 mx-auto mb-2"/>
-                                    <p>Your generated figure will appear here.</p>
+                                    <p>생성된 피규어가 여기에 표시됩니다.</p>
                                 </div>
                             )}
                         </div>
@@ -139,7 +139,7 @@ const App: React.FC = () => {
                             className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:from-purple-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
                         >
                             {isLoading ? <Spinner /> : <SparklesIcon className="h-6 w-6" />}
-                            <span>{isLoading ? 'Generating...' : 'Generate Figure'}</span>
+                            <span>{isLoading ? '생성 중...' : '피규어 생성'}</span>
                         </button>
                 </div>
             </div>
