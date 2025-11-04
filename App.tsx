@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { generateImage } from './services/geminiService';
+import { generateImage } from './services/geminiService.ts';
 
 const initialPrompt = "사진 속 캐릭터들의 1/7 스케일 상업용 피규어를 현실적인 스타일로, 실제 환경에 배치해 줘. 피규어는 컴퓨터 책상 위에 놓여 있고, 피규어 받침대는 둥근 투명 아크릴로, 받침대에는 아무런 글씨도 없어. 컴퓨터 화면에는 이 피규어의 Zbrush 모델링 과정이 보여. 컴퓨터 화면 옆에는 오리지널 아트워크가 인쇄된 BANDAI 스타일의 장난감 포장 상자가 있어. 포장에는 2D 평면 일러스트레이션이 들어가 있어.";
 

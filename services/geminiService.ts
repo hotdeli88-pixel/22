@@ -1,5 +1,5 @@
 import { GoogleGenAI, Modality } from "@google/genai";
-import { fileToBase64 } from '../utils/fileUtils';
+import { fileToBase64 } from '../utils/fileUtils.ts';
 
 export const generateImage = async (imageFile: File, prompt: string): Promise<string> => {
     if (!process.env.API_KEY) {
