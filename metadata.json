@@ -1,0 +1,5 @@
+{
+  "name": "My Own Figure Generator",
+  "description": "An app that uses an uploaded photo and a text prompt to generate a photorealistic image of a commercial-style figurine based on the photo's characters, placed in a realistic setting using the Gemini 2.5 Flash Image model.",
+  "requestFramePermissions": []
+}
